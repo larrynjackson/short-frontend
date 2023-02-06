@@ -157,7 +157,9 @@ export function DisplayTagShort() {
           </Form.Group>
         </Row>
         <Form.Group controlId="markdown">
-          <Form.Label>Destination URL</Form.Label>
+          <Form.Label>
+            Destination URL &nbsp; &nbsp; &nbsp; &nbsp;Shortcode: {tag?.value}
+          </Form.Label>
           <Form.Control
             name="destination"
             value={destination}

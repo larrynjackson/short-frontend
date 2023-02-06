@@ -102,49 +102,51 @@ export function ShortPage() {
 
   return (
     <>
-      <Row className="align-items-center mb-4">
-        <img style={imgSize} src={creativeThinking} alt="Creative Thinking" />
-      </Row>
-      <Row className="align-items-center mb-4">
-        <Col>
-          <h1>L&L Shortener</h1>
-        </Col>
-
-        <Col xs="auto">
-          <Stack gap={2} direction="horizontal">
-            <ShortMenu />
-          </Stack>
-        </Col>
-      </Row>
-      <Form>
-        <Row className="mb-4">
-          <Col>
-            <Form.Group controlId="tagname">
-              <Form.Label>Tag Filter</Form.Label>
-              <Form.Control
-                type="text"
-                value={tagname}
-                onChange={(e) => setTagname(e.target.value)}
-              />
-            </Form.Group>
-          </Col>
-          <Col></Col>
+      <div>
+        <Row className="align-items-center mb-4">
+          <img style={imgSize} src={creativeThinking} alt="Creative Thinking" />
         </Row>
-      </Form>
-      <Row xs={1} sm={2} lg={3} xl={4} className="g-3">
-        {tagArray
-          ?.filter((tag) => tagMatch(tag))
-          .map((tag) => (
-            <Col key={tag?.value}>
-              <NoteCard
-                tagname={tagMap.get(tag?.value)}
-                url={destMap.get(tag?.value)}
-                tag={tag}
-                setTag={setTag}
-              />
+        <Row className="align-items-center mb-4">
+          <Col>
+            <h1>L&L Shortener</h1>
+          </Col>
+
+          <Col xs="auto">
+            <Stack gap={2} direction="horizontal">
+              <ShortMenu />
+            </Stack>
+          </Col>
+        </Row>
+        <Form>
+          <Row className="mb-4">
+            <Col>
+              <Form.Group controlId="tagname">
+                <Form.Label>Tag Filter</Form.Label>
+                <Form.Control
+                  type="text"
+                  value={tagname}
+                  onChange={(e) => setTagname(e.target.value)}
+                />
+              </Form.Group>
             </Col>
-          ))}
-      </Row>
+            <Col></Col>
+          </Row>
+        </Form>
+        <Row xs={1} sm={2} lg={3} xl={4} className="g-3">
+          {tagArray
+            ?.filter((tag) => tagMatch(tag))
+            .map((tag) => (
+              <Col key={tag?.value}>
+                <NoteCard
+                  tagname={tagMap.get(tag?.value)}
+                  url={destMap.get(tag?.value)}
+                  tag={tag}
+                  setTag={setTag}
+                />
+              </Col>
+            ))}
+        </Row>
+      </div>
     </>
   );
 }
